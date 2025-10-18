@@ -3,8 +3,8 @@ config :ash, policies: [show_policy_breakdowns?: true]
 
 # Configure your database
 config :tunez, Tunez.Repo,
-  username: "admin",
-  password: "admin",
+  username: "postgres",
+  password: "postgres",
   hostname: "localhost",
   database: "tunez_dev",
   stacktrace: true,
