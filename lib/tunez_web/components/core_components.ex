@@ -150,7 +150,7 @@ defmodule TunezWeb.CoreComponents do
   def cover_image(assigns) do
     ~H"""
     <%= if @image do %>
-      <img src={@image} class="block aspect-square rounded-md w-full" />
+      <img src={@image} class="block aspect-square rounded-xl w-full" />
     <% else %>
       <div class="border border-gray-300 place-content-center grid rounded-md aspect-square">
         <.icon name="hero-photo" class="bg-gray-300 w-8 h-8" />

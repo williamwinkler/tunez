@@ -120,7 +120,7 @@ defmodule TunezWeb.Albums.FormLive do
 
   def handle_event("save", %{"form" => form_data}, socket) do
     case AshPhoenix.Form.submit(socket.assigns.form, params: form_data) do
-      {:ok, album}->
+      {:ok, album} ->
         socket =
           socket
           |> put_flash(:info, "Album saved successfully")

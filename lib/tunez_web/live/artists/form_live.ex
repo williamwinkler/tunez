@@ -14,7 +14,6 @@ defmodule TunezWeb.Artists.FormLive do
     {:ok, socket}
   end
 
-
   # For new artist
   def mount(_params, _session, socket) do
     form = Tunez.Music.form_to_create_artist()
@@ -57,6 +56,7 @@ defmodule TunezWeb.Artists.FormLive do
       update(socket, :form, fn form ->
         AshPhoenix.Form.validate(form, form_data)
       end)
+
     {:noreply, socket}
   end
 
@@ -65,13 +65,14 @@ defmodule TunezWeb.Artists.FormLive do
       {:ok, artist} ->
         socket =
           socket
-            |> put_flash(:info, "Artist created successfully")
-            |> push_navigate(to: ~p"/artists/#{artist.id}")
+          |> put_flash(:info, "Artist created successfully")
+          |> push_navigate(to: ~p"/artists/#{artist.id}")
 
         {:noreply, socket}
 
       {:error, form} ->
-        socket = socket
+        socket =
+          socket
           |> put_flash(:error, "Failed to create artist")
           |> assign(:form, to_form(form))
 
