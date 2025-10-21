@@ -179,7 +179,7 @@ defmodule TunezWeb.CoreComponents do
       class={[
         @theme,
         @rest[:disabled] && "opacity-60 grayscale pointer-events-none",
-        @class
+        @class && "active:scale-95 transition duration-100"
       ]}
       {@rest}
     >
@@ -278,7 +278,7 @@ defmodule TunezWeb.CoreComponents do
       type={@type}
       class={
         [
-          "phx-submit-loading:opacity-75 rounded-lg font-medium leading-none",
+          "phx-submit-loading:opacity-75 rounded-lg font-medium leading-none active:scale-95 cursor-pointer",
           # medium
           "py-3 px-4 text-sm",
           # primary

@@ -5,10 +5,6 @@ defmodule Tunez.Music.Artist do
     data_layer: AshPostgres.DataLayer,
     extensions: [AshJsonApi.Resource]
 
-  resource do
-    description "A person or group that makes and releases music."
-  end
-
   json_api do
     type "artist"
     includes [:albums]
@@ -25,12 +21,17 @@ defmodule Tunez.Music.Artist do
     end
   end
 
+  resource do
+    description "A person or group that makes and releases music."
+  end
+
   actions do
     defaults [:create, :read, :destroy]
     default_accept [:name, :biography]
 
     read :search do
       description "List artists"
+
       argument :query, :ci_string do
         description "Filter artists by name"
         constraints allow_empty?: true

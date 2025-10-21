@@ -62,7 +62,7 @@ defmodule TunezWeb.Artists.ShowLive do
   def album_details(assigns) do
     ~H"""
     <div id={"album-#{@album.id}"} class="md:flex gap-8 group">
-      <div class="mx-auto mb-6 md:mb-0 w-2/3 md:w-72 lg:w-96">
+      <div class="mx-auto mb-6 md:mb-0 w-2/3 md:w-72 lg:w-96 transition active:scale-97">
         <.cover_image image={@album.cover_image_url} />
       </div>
       <div class="flex-1">

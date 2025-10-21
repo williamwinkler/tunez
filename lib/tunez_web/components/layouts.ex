@@ -27,6 +27,7 @@ defmodule TunezWeb.Layouts do
             </span>
           </.link>
         </div>
+        <.user_info current_user={@current_user} socket={@socket} />
       </div>
       <div class="px-4">
         <.flash_group flash={@flash} />
@@ -41,13 +42,17 @@ defmodule TunezWeb.Layouts do
     ~H"""
     <div class="flex space-x-3 relative items-center">
       <%= if @current_user do %>
-        {live_render(@socket, TunezWeb.NotificationsLive, sticky: true, id: :notifications_container)}
-
+        <div class="cursor-pointer">
+          {live_render(@socket, TunezWeb.NotificationsLive,
+            sticky: true,
+            id: :notifications_container
+          )}
+        </div>
         <div class="!ml-8">
           <div
             tabindex="0"
             role="button"
-            class="pr-0"
+            class="pr-0 cursor-pointer"
             phx-click={toggle("#user-menu")}
             phx-click-away={hide("#user-menu")}
           >

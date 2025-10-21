@@ -72,7 +72,11 @@ defmodule TunezWeb.Artists.IndexLive do
 
   def artist_card(assigns) do
     ~H"""
-    <div id={"artist-#{@artist.id}"} data-role="artist-card" class="relative mb-2">
+    <div
+      id={"artist-#{@artist.id}"}
+      data-role="artist-card"
+      class="relative mb-2 transition hover:scale-103 active:scale-100"
+    >
       <.link navigate={~p"/artists/#{@artist.id}"}>
         <.cover_image image={@artist.cover_image_url} />
       </.link>
